@@ -7,6 +7,7 @@ import reportWebVitals from './reportWebVitals';
 
 import io from 'socket.io-client';
 import Header from './components/Header';
+import Sav from './pages/Sav';
 
 const socket = io.connect('http://localhost:4000');
 
@@ -18,7 +19,8 @@ root.render(
       <div className='App'>
         <Routes>
          <Route path='/admin' element={<Admin />} />
-
+         <Route path="/admin/:rubriqueSujet" element={<Sav/>} />
+         {/* <Route path="/news/:slug" element={<NewsDetail/>} /> */}
       
         </Routes>
       </div>

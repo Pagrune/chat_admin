@@ -23,9 +23,12 @@ const Admin = () => {
             {userAuthenticated ? (
                 <div className='white_box deux_tier'>
                     <h1>Bienvenue sur la page principale du chat d'Administration</h1>
-                    {sujets.map(sujet => (
-                        <button key={sujet.id_sujet}>{sujet.sujet_rubrique}</button>
-                    ))}
+                    <h2>Voir les différentes conversations</h2>
+                    <div className='flex'>
+                        {sujets.map(sujet => (
+                            <button key={sujet.id_sujet}>{sujet.sujet_rubrique}</button>
+                        ))}
+                    </div>
                 </div>
             ) : (
                 <>

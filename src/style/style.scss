@@ -9,6 +9,20 @@ body{
     margin-right: auto;
 }
 
+.header{
+    color: white;
+    margin-bottom: 30px;
+    font-size: 36px;
+    a{
+        color: white; 
+        text-decoration: none;
+    }
+}
+
+h1{
+    font-size: 40px;
+}
+
 .white_box{
     background-color: white;
     border-radius: 20px;
@@ -20,4 +34,27 @@ body{
     width: 66%;
     margin-left: auto;
     margin-right: auto;
+}
+
+.flex{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.grid_deux{
+    display: grid;
+    grid-template-columns: 40% 60%;
+    grid-gap: 20px;
+}
+
+button{
+    background-color: #EA515F;
+    border-radius: 12px;
+    padding: 8px;
+    width: 400px;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 32px;
 }
