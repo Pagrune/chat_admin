@@ -6,12 +6,14 @@ import './style/style.scss';
 import reportWebVitals from './reportWebVitals';
 
 import io from 'socket.io-client';
+import Header from './components/Header';
 
 const socket = io.connect('http://localhost:4000');
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+    <Header/>
     <Router>
       <div className='App'>
         <Routes>
