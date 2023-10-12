@@ -1,13 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Admin from './pages/Admin';
+import './style/style.scss';
 import reportWebVitals from './reportWebVitals';
+
+import io from 'socket.io-client';
+
+const socket = io.connect('http://localhost:4000');
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <Router>
+      <div className='App'>
+        <Routes>
+         <Route path='/admin' element={<Admin />} />
+
+      
+        </Routes>
+      </div>
+    </Router>
   </React.StrictMode>
 );
 
