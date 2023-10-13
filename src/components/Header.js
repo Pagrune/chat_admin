@@ -25,7 +25,7 @@ const Header = () => {
             <p>Administration du chat</p>
             {sujets.map(sujet => (
                 <div key={sujet.id_sujet}>
-                    <a href={`/admin/${removeAccents(sujet.sujet_rubrique).replace(/\s+/g, '-').toLowerCase()}`}>{sujet.sujet_rubrique}</a>
+                    <a href={`/admin/${removeAccents(sujet.sujet_rubrique).replace(/\s+/g, '-').toLowerCase()}/${sujet.id_sujet}`}>{sujet.sujet_rubrique}</a>
                 </div>
             
             ))}
