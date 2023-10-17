@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
 
 const Header = () => {
     const [sujets, setSujets] = useState([]);
@@ -13,7 +12,7 @@ const Header = () => {
                 .catch(error => {
                     console.error(error);
                 });  
-    });
+    }, []);
 
 
     function removeAccents(str) {

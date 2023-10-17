@@ -14,6 +14,7 @@ const App = () => {
   const [room, setRoom] = useState('');
   const [title, setTitle] = useState('');
   const [sujet, setSujet] = useState('');
+  const username = '1';
 
   const socket = io.connect('http://localhost:4000');
 
@@ -33,9 +34,12 @@ const App = () => {
             setSujet={setSujet}
             title={title}
             setTitle={setTitle}
-            socket={socket} />} />
+            socket={socket}
+            username={username} />} />
             <Route path="/chat" element={<Chat />} />
+            <Route path="/chat/:room" element={<Chat />} />
           </Routes>
+
         </div>
       </Router>
     </React.StrictMode>
