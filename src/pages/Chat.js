@@ -1,20 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
+import SendMessage from '../components/SendMessage';
+import MessagesReceived from '../components/Messages';
 
 const Chat = ({ socket, username }) => {
     const { room } = useParams();
     const [sujet, setSujet] = useState(null); // Utilisez null comme valeur par défaut pour sujet
     const [message, setMessage] = useState('');
     const [error, setError] = useState(null);
-
-    const sendMessage = () => {
-        if (message.trim() !== '') {
-            const __createdtime__ = Date.now();
-            socket.emit('send_message', { username, room, message, __createdtime__ });
-            setMessage('');
-        }
-    };
 
     // useEffect(() => {
     //     // Écoutez le message 'room_joined' pour obtenir la valeur de la room
@@ -48,16 +42,11 @@ const Chat = ({ socket, username }) => {
                 {sujet && <p>Hello {sujet.conv_title}</p>} {/* Vérifiez si sujet existe avant d'essayer d'y accéder */}
                 {error && <p>Erreur de chargement des données.</p>} {/* Affichez un message d'erreur en cas d'erreur de chargement */}
                 <div>
-                    <input
-                        placeholder='Message...'
-                        onChange={(e) => setMessage(e.target.value)}
-                        value={message}
-                    />
-                    <button onClick={sendMessage}>
-                        Envoyer le message
-                    </button>
-                </div>
+                    <MessagesReceived socket={socket} />
+                    <SendMessage socket={socket} username={username} room={room} />
             </div>
+                </div>
+                
         </>
     );
 };
